@@ -1,3 +1,5 @@
+*.pyc
+*.pyo
 .project
 .pydevproject
 .installed.cfg
@@ -5,8 +7,8 @@
 .settings/
 develop-eggs/
 devsrc/
-postorius/
 var/
 bin
 eggs
 parts
+mmtest.db

@@ -1,2 +1,12 @@
 .project
 .pydevproject
+.installed.cfg
+.mr.developer.cfg
+.settings/
+develop-eggs/
+devsrc/
+postorius/
+var/
+bin
+eggs
+parts

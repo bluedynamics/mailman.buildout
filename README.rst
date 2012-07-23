@@ -86,3 +86,10 @@ Start mailman::
 Run postorius::
 
     ./bin/django runserver
+
+
+Notes
+=====
+
+- Mailman Domain URL needs to start with protocol schema, e.g. http://
+  (URL host field in Web UI)

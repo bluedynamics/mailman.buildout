@@ -197,6 +197,26 @@ Save changes::
     >>> commit()
 
 
+Setting a password for a user
+=============================
+
+Open mailman shell::
+
+    ./bin/mailman shell
+
+Set password::
+
+    >>> from mailman.interfaces.usermanager import IUserManager
+    >>> from zope.component import getUtility
+    >>> user_manager = getUtility(IUserManager)
+    >>> user = user_manager.get_user(u'foo@example.com')
+    >>> user.password = 'secret'
+
+Save changes::
+
+    >>> commit()
+
+
 Subscribe to Mailinglist
 ========================
 

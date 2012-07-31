@@ -222,6 +222,19 @@ XXX: authenticate in postorius with this user?
 Adopting templates for mailinglist
 ==================================
 
+Open mailman shell with mailinglist::
+
+    ./bin/mailman withlist test@lists.example.com
+
+Set templates. Can be any URI supported by ``urllib2`` with the addition of
+``mailman:`` URIs::
+
+    >>> m.welcome_message_uri = u'mailman:///welcome.txt'
+    >>> m.goodbye_message_uri = u'file:///path/to/file.txt'
+    >>> m.header_uri = u'mailman:///$listname/$language/header-generic.txt'
+    >>> m.footer_uri = u'mailman:///$listname/$language/footer-generic.txt'
+    >>> commit()
+
 XXX: Correct links in email
 
 XXX: Template locations and assets

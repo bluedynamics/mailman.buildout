@@ -172,6 +172,31 @@ Navigate to "settings" -> "message acceptance" and set default action for
 member posts to "Hold for moderator"
 
 
+Creating a moderator for list
+=============================
+
+Open mailman shell with mailinglist::
+
+    ./bin/mailman withlist test@lists.example.com
+
+Create user which gets moderator in list::
+
+    >>> from mailman.interfaces.usermanager import IUserManager
+    >>> from zope.component import getUtility
+    >>> user_manager = getUtility(IUserManager)
+    >>> moderator = user_manager.create_user(u'foo@example.com', u'Foo')
+
+Add to list as moderator::
+
+    >>> from mailman.interfaces.member import MemberRole
+    >>> address = list(moderator.addresses)[0]
+    >>> m.subscribe(address, MemberRole.moderator)
+
+Save changes::
+
+    >>> commit()
+
+
 Subscribe to Mailinglist
 ========================
 

@@ -216,6 +216,19 @@ Save changes::
 
     >>> commit()
 
+XXX: authenticate in postorius with this user?
+
+
+Adopting templates for mailinglist
+==================================
+
+XXX: Correct links in email
+
+XXX: Template locations and assets
+
+Note: The Web confirmation link is completly broken in postorius, remove it
+from templates, only email confirmation possible right now.
+
 
 Subscribe to Mailinglist
 ========================

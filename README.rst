@@ -153,4 +153,64 @@ Save changes::
 Create Mailinglist
 ==================
 
+Start creating mailinglist in postorius. Navigate to "lists" and click
+"new list".
 
+Enter list name, e.g. ``test``.
+
+Choose mailhost.
+
+Define list owner (defaults to domain contact)
+
+Choose whether to advertise list
+
+Enter description
+
+Save list.
+
+Navigate to "settings" -> "message acceptance" and set default action for
+member posts to "Hold for moderator"
+
+
+Subscribe to Mailinglist
+========================
+
+Send an email to
+    test-request@lists.example.com
+
+with subject
+    subscribe
+
+and message
+    subscribe
+
+``test`` is desired mailinglist
+
+
+Unsubscribe from Mailinglist
+============================
+
+Send an email to
+    test-request@lists.example.com
+
+with subject
+    unsubscribe
+
+and message
+    unsubscribe
+
+``test`` is desired mailinglist
+
+
+Configure collective.newsletter
+===============================
+
+Install ``collective.newsletter`` in your plone instance.
+
+Install ``collective.newsletter`` from ``addons`` in control panel.
+
+Create mailing list in ``newsletter`` addon configuration.
+
+Give it a name, and a list email address.
+
+Choose mailman as protocol.

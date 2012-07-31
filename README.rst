@@ -30,6 +30,27 @@ Initialize DB::
 
     ./bin/django syncdb
 
+While DB is initialized, system asks for superuser creation.
+
+
+Building Documentation
+======================
+
+Mailman sources include a sphinx documentation. In order to generate HTML docs,
+sphinx must be installed in your python. Then you can navigate to::
+
+    $mailman_install_dir/devsrc/mailman
+
+and run::
+
+    python setup.py build_sphinx
+
+Generated docs are not located at::
+
+    $mailman_install_dir/devsrc/mailman/build/sphinx/html
+
+and can be viewed with any web browser.
+
 
 Configure Mailman
 =================
@@ -87,9 +108,49 @@ Run postorius::
 
     ./bin/django runserver
 
+Postorius binds to 127.0.0.1:8000 by default
 
-Notes
-=====
 
-- Mailman Domain URL needs to start with protocol schema, e.g. http://
-  (URL host field in Web UI)
+Create Domain
+=============
+
+Open browser and navigate to portorius (127.0.0.1:8000).
+
+Navigate to settings and klick "new domain".
+
+Enter mail host::
+
+    lists.example.com
+
+Enter web host::
+
+    lists.example.com
+
+Mailman Domain web host needs to start with protocol schema, e.g. http://.
+At time of writing this document, postorius has a validation bug in domain form
+validation, where no protocol scheme can be defined. In order to fix this, use
+mailman shell via command line by typing::
+
+    ./bin/mailman shell
+
+and finish domain configuration::
+
+    >>> from mailman.interfaces.domain import IDomainManager
+    >>> from zope.component import getUtility
+    >>> manager = getUtility(IDomainManager)
+    >>> domain = manager.get(u'lists.example.com')
+    >>> domain.base_url = u'http://lists.example.com' 
+
+The contact address should also be changed with::
+
+    >>> domain.contact_address = u'postmaster@example.com'
+
+Save changes::
+
+    >>> commit()
+
+
+Create Mailinglist
+==================
+
+

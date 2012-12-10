@@ -273,6 +273,25 @@ and message
 ``test`` is desired mailinglist
 
 
+Create postorius user
+=====================
+
+Create a postorius user permitted to moderate list::
+
+    ./bin/django shell
+    
+    >>> from django.contrib.auth.models import User
+    >>> user = User.objects.create_user(username='john', email='', password='x')
+    >>> user.is_staff = False
+    >>> user.save()
+
+Check authentication::
+
+    >>> from django.contrib.auth import authenticate
+    >>> authenticate(username="john", password="x")
+    <User: phonogen>
+
+
 Configure collective.newsletter
 ===============================
 

@@ -1,5 +1,5 @@
 ================
-mainman.buildout
+mailman.buildout
 ================
 
 Buildout setting up Mailman 3 and postorius using Postfix as MTA.
